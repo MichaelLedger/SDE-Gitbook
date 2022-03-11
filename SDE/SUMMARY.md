@@ -1,0 +1,22 @@
+# Summary
+
+* [软件设计师(Software Design Engineer)](README.md)
+    * [考试大纲](考试大纲/README.md)
+    * [考试真题]()
+        * [2021下半年考试真题-上午卷](考试真题/2021下半年/计算机与软件工程知识/README.md)
+        * [2021下半年考试真题-下午卷](考试真题/2021下半年/软件设计/README.md)
+    * [知识点]()
+        * [顺序查找](知识点/顺序查找/README.md)
+        * [二分查找](知识点/二分查找/README.md)
+        * [插入排序](知识点/插入排序/README.md)
+        * [冒泡排序](知识点/冒泡排序/README.md)
+        * [选择排序](知识点/选择排序/README.md)
+        * [McCabe环路复杂度计算方法](知识点/McCabe环路复杂度计算方法/README.md)
+        * [归并排序算法](知识点/归并排序算法/README.md)
+        * [java数组元素交换的四种方法](知识点/java数组元素交换的四种方法/README.md)
+        * [Armstrong公理](知识点/Armstrong公理/README.md)
+        * [数据库三级模式两级映射](知识点/数据库三级模式两级映射/README.md)
+        * [ISO/IEC和McCall软件质量模型](知识点/ISO:IEC和McCall软件质量模型/README.md)
+        * [软件测试V模型W模型H模型](知识点/软件测试V模型W模型H模型/README.md)
+        * [软件生存周期模型](知识点/软件生存周期模型/README.md)
+        
