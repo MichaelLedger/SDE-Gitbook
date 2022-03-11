@@ -9,23 +9,10 @@ Software design engineer examination book published with Gitbook.
 `node -v`
 `npm -v`
 
-### Global install gitbook
+#### Global install gitbook
 `$ sudo npm install gitbook-cli -g`
 
-### Install plugins from book.json into `node_modules` directory
-```
-$ cd <dir>
-$ gitbook install ./
-```
-
-Use `$ gitbook init <dir>`  to create a book
-
-Use `$ gitbook install <dir>`  to install plugins for book
-
-Use `$ gitbook build <dir>` to build a book
-
-Use `$ gitbook serve <dir>` to preview a book
-
+***
 Preview locally in Safari with command:
 ```
 % gitbook serve SDE
@@ -34,7 +21,17 @@ Publish book with command:
 ```
 % gitbook build SDE
 ```
-### Gitbook issues
+***
+#### Gitbook commands
+Use `$ gitbook init <dir>`  to create a book
+
+Use `$ gitbook install <dir>`  to install plugins for book from book.json into `node_modules` directory
+
+Use `$ gitbook build <dir>` to build a book
+
+Use `$ gitbook serve <dir>` to preview a book
+***
+#### Gitbook installation issues
 
 **Gitbook-cli install error TypeError: cb.apply is not a function inside graceful-fs**
 ```
