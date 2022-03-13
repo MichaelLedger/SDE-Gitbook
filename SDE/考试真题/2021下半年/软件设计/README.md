@@ -396,7 +396,7 @@ int editdistance(char *str1, int len1, char *str2, int len2) {
 (7)4
 
 #### Code Sample
-[DNA-Edit-Distance-Calculator](https://github.com/MichaelLedger/SDE-Code-Samples/blob/main/C/DNA-Edit-Distance-Calculator/DNA-Edit-Distance-Calculator/main.c)
+[DNA-Edit-Distance-Calculator](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/C/DNA-Edit-Distance-Calculator)
 
 ***
 ### 试题五 (共 15 分)
@@ -439,6 +439,113 @@ int editdistance(char *str1, int len1, char *str2, int len2) {
     padding: 2px;"></div>
 </center>
 
+```
+//
+//  main.cpp
+//  Go-FlyWeight
+//
+//  Created by MTX on 2022/3/12.
+//
+//  向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）可以认为是一个动态数组的抽象，其中一个vector中的所有对象都必须是同一种类型
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+enum PieceColor {BLACK, WHITE};//棋子颜色
+class PiecePos {//棋子位置
+private:
+    int x;
+    int y;
+public:
+    PiecePos(int a, int b): x(a), y(b) {}
+    int getX() { return x; }
+    int getY() { return y; }
+};
+class Piece {//棋子定义
+protected:
+    PieceColor m_color;//颜色
+    PiecePos m_pos;//位置
+public:
+    Piece(PieceColor color, PiecePos pos): m_color(color), m_pos(pos) {}
+    virtual void Draw() {}
+    string description() {//描述棋子的颜色和位置
+        const char *color = (m_color==BLACK)?"black":"white";
+        int x = m_pos.getX();
+        int y = m_pos.getY();
+        char *buf = new char[100];//避免数组越界 malloc: Incorrect checksum for freed object
+        sprintf(buf, "color:%s, position:(%d,%d)", color, x, y);
+        return buf;
+    }
+};
+class BlackPiece: public Piece {
+public:
+    BlackPiece(PieceColor color, PiecePos pos): Piece(color, pos){}
+    void Draw() {cout << "draw a black piece" << endl;}
+};
+class WhitePiece: public Piece {
+public:
+    WhitePiece(PieceColor color, PiecePos pos): Piece(color, pos){}
+    void Draw() {cout << "draw a white piece" << endl;}
+};
+class PieceBoard {
+private:
+    vector<Piece*> m_vecPiece;//棋盘上已有的棋子
+    string m_blackName;//黑方名称
+    string m_whiteName;//白方名称
+public:
+    PieceBoard(string black, string white): m_blackName(black), m_whiteName(white){}
+    void setPiece(PieceColor color, PiecePos pos) {//一步棋，在棋盘上放一颗棋子
+        Piece* piece = NULL;
+        if (color == BLACK) {//放黑子
+            piece = new BlackPiece(color, pos);
+            cout << m_blackName << "在位置（" << pos.getX() << "," << pos.getY() << "）";
+            piece->Draw();
+        }
+        else {//放白子
+            piece = new WhitePiece(color, pos);
+            cout << m_whiteName << "在位置（" << pos.getX() << "," << pos.getY() << "）";
+            piece->Draw();
+        }
+        m_vecPiece.push_back(piece);
+    }
+    vector<Piece*> getAllPieces() {
+        cout << "棋盘上所有的棋子(" << m_vecPiece.size() << "):" << endl;
+        /*
+         for(语句1;语句2;语句3) {}
+         语句 1 在循环（代码块）开始前执行
+         语句 2 定义运行循环（代码块）的条件
+         语句 3 在循环（代码块）已被执行之后执行
+         这就是循环中的 ++i 和 i++ 结果一样的原因，但是性能不一样，在大量数据的时候 ++i 的性能要比 i++ 的性能好原因:
+         i++ 由于是在使用当前值之后 再+1 ，所以需要一个临时的变量来转存。 而 ++i 则是在直接 +1 ，省去了对内存的操作的环节，相对而言能够提高性能。
+         */
+        for(int i = 0;i < m_vecPiece.size();++i) {
+            Piece* p = m_vecPiece[i];
+            cout << "[" << i << "] " << p->description() << endl;//指针获取对象的成员函数可以使用 -> 操作符
+        }
+        cout << "========" << endl;
+        for(vector<Piece*>::iterator item=m_vecPiece.begin();item<m_vecPiece.end();++item){//迭代器遍历
+            Piece* p = *item;
+            cout << p->description() << endl;//指针获取对象的成员函数可以使用 -> 操作符
+        }
+        return m_vecPiece;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    PieceBoard board = PieceBoard("blackPlayer", "whitePlayer");
+    board.setPiece(BLACK, PiecePos(2, 3));
+    board.setPiece(WHITE, PiecePos(3, 3));
+    board.getAllPieces();
+    return 0;
+}
+
+```
+
+#### Code Sample
+[Go-FlyWeight](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/C++/Go-FlyWeight)
+
 ***
 ### 试题六 (共 15 分)
 阅读下列说明和Java代码,将应填入(n)处的字句写在答题纸的对应栏内。 
@@ -461,73 +568,80 @@ int editdistance(char *str1, int len1, char *str2, int len2) {
 </center>
 
 【Java代码】 
+
 ```
-mport java.util.*:
-enum PieceColor ｛BLACK，WHITE｝／／棋子颜色
-class PiecePos｛／／棋子位置
-private int x;
-private int y:
-pubic PiecePos(int a,int b){x=a;y=b;}
-public int getX0{retun x;}
-public int getYO{return y;}
+import java.util.*;
+enum PieceColor{BLACK,WHITE}//棋子颜色
+class PiecePos{//棋子位置
+    private int x;
+    private int y;
+    public PiecePos(int a,int b){x=a;y=b;}
+    public int getX(){return x;}
+    public int getY(){return y;}
 }
-abstract class Piece｛／／棋子定义
-protected PieceColor m＿color；／／颜色
-protected Piecemopos m＿pos；／／位置
-public Piece(PieceColor,color PiecePos
-pos){m color=color;
-{:sod=sod u
-(1);
+abstract class Piece {//棋子定义
+    protected PieceColor m_color;//颜色
+    protected PiecePos m_pos;//位置
+    public Piece(PieceColor color, PiecePos pos){m_color=color;m_pos=pos;}
+    //指向基类的指针在操作它的多态类对象时，会根据不同的类对象，调用其相应的函数，这个函数就是虚函数。C++ 中必须用 virtual 修饰。
+    //java的普通成员函数（没有被static、native、final等关键字修饰）就是虚函数，原因很简单，它本身就实现虚函数实现的功能-多态。
+    //从字节码指令的命名上也可以看出，java中的普通成员函数就是虚函数。
+    //问题1: (1)
+    void draw(){}
 }
-class BlackPiece extends Piece{
-public BlackPiece(PieceColor
-color,PiecePos pos){super(color,pos);}
-public void drawO{
-System out println("draw a black
-piece");}
+class BlackPiece extends Piece {//黑棋
+    public BlackPiece(PieceColor color, PiecePos pos) {super(color, pos);}
+    public void draw() {
+        System.out.println("draw a black piece.");
+    }
 }
-class WhitePiece extends Piece{
-public WhitePiece(PieceColor
-color,PiecePos pos){super(c
-olor,pos):}
-public void draw0{
-System.out.println("draw a white
-piece");
+class WhitePiece extends Piece {//白棋
+    public WhitePiece(PieceColor color, PiecePos pos) {super(color, pos);}
+    public void draw() {
+        System.out.println("draw a white piece.");
+    }
 }
-{
-class PieceBoard{
-／／棋盘上已有的棋子
-private static final
-ArrayList&lt;(2)&gt;m_arrayPiece=new Arra
-yList
-private String m＿blackName；／／黑方名称
-private String m＿whiteName；／／白方名称
-public PieceBoard(String black,String
-white){
-m_blackName=black;m_whiteName=white;
+class PieceBoard{//棋盘上已有的棋子
+    //问题2: private static final ArrayList<(2)> m_arrayPiece=new ArrayList();
+    private static final ArrayList<Piece> m_arrayPiece=new ArrayList();
+    private String m_blackName;//黑方名称
+    private String m_whiteName;//白方名称
+    public PieceBoard(String black,String white){m_blackName=black;m_whiteName=white;}
+    //一步棋,在棋盘上放一颗棋子
+    public void SetPiece(PieceColor color,PiecePos pos) {
+        //问题3: (3) piece = null;
+        Piece piece = null;
+        if (color == PieceColor.BLACK) {//放黑子
+            piece = new BlackPiece(color, pos);//获取一颗黑子
+            System.out.print(m_blackName + " 在位置（" + pos.getX() + "," + pos.getY() + ") ");
+            //问题4: (4)
+            piece.draw();
+        } else {//放白子
+            piece = new WhitePiece(color, pos);//获取一颗白子
+            System.out.print(m_whiteName + " 在位置（" + pos.getX() + "," + pos.getY() + ") ");
+            //问题5: (5)
+            piece.draw();
+        }
+        m_arrayPiece.add(piece);
+    }
 }
-／／一步棋，在棋盘上放一颗棋子
-public void SetePiece(PieceColor
-color,PiecePos pos){
-(3)piece=null;
-if（color＝＝PieceColor.BLACK）（／／放黑子
-piece＝new BlackPiece（color，pos）；／／获取一颗黑子
-System．out．println（m＿blackName＋＂在位置（＂＋pos．getX0）
-+","+pos.getYO+")");
-(4):
-{
-else｛／／放白子
-piece＝new WhitePiece（color，pos）；／／获取一颗白子
-System．out．println（m whiteName＋＂在位置（＂＋pos．getX0）＋
-","+pos.getYO+")");
-(5):
-}
-m_arrayPiece.add(piece);
-}
+class go{//围棋的英文为go
+    public static void main(String[] args){
+        //System.out.println("Hello World!");
+        PieceBoard board=new PieceBoard("blackPlayer", "whitePlayer");
+        BlackPiece black=new BlackPiece(PieceColor.BLACK, new PiecePos(1,2));
+        board.SetPiece(PieceColor.BLACK, new PiecePos(2,3));
+        board.SetPiece(PieceColor.WHITE, new PiecePos(3,3));
+    }
 }
 ```
+
+#### Code Sample
+[Go-FlyWeight](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/Java/Go-FlyWeight)
 
 #### 参考
 [信管网题库](http://www.cnitpm.com/st/459608903.html)
 
 [软考在线免费智能真题库](http://www.rkpass.cn/tk_timu/6_735_4_anli.html)
+
+[CSDN 软件设计师真题及答案解析](https://blog.csdn.net/xiaornshuo/article/details/121232150)
