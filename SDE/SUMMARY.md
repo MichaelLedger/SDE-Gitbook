@@ -21,4 +21,6 @@
         * [ISO/IEC和McCall软件质量模型](知识点/ISO:IEC和McCall软件质量模型/README.md)
         * [软件测试V模型W模型H模型](知识点/软件测试V模型W模型H模型/README.md)
         * [软件生存周期模型](知识点/软件生存周期模型/README.md)
+        * [开放式系统互联OSI](知识点/开放式系统互联OSI/README.md)
+        * [TCP报文格式解析](知识点/TCP报文格式解析/README.md)
         
