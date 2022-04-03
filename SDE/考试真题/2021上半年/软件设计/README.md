@@ -90,24 +90,29 @@ D3：车位信息表
 
 问题3：
 
-P3到D2：余额(若储存余额够本次停车费用，自动扣费，更新余额)
+P3到D2：更新余额(若储存余额够本次停车费用，自动扣费并更新余额)
 
 P5到D3：车位数(修改空余车位数)
 
-P1到P5：车辆入场信息
+P1到P5：道闸控制请求(车辆入场信息)
 
 P4到P5：故障排查处理
 
+D3到P3：计费规则信息
+
 问题4：
 
-if道闸执行状态正常
-
-if车辆入场，then将车牌号及其入场时间信息存入停车记录，修改空余车位数
-
-else if 车辆出厂，then更新停车状态，修改空余车位数
-
-else 系统向管理人员发送异常告警信息
-
+```
+IF (道闸执行状态正常)
+    IF (车辆入场) THEN
+        将车牌号及其入场时间信息存入停车记录，修改空余车位数
+    ELSEIF (车辆出场) THEN
+        更新停车状态，修改空余车位数
+    ENDIF
+ELSEIF (无法在规定的时间内接收到其返回的执行状态正常放行) THEN
+    系统向管理人员发送异常告警信息
+ENDIF
+```
 ### 试题二
 (共 15 分)
 
@@ -173,7 +178,9 @@ else 系统向管理人员发送异常告警信息
 
 问题2：
 
-a：团购点编号;    b：客户电话
+a：团购点编号。主键：供应商编号，团购点编号；外键：供应商编号，团购点编号。
+
+b：客户电话。主键：订单编号；外键：团购点编号，客户电话。
 
 问题3：
 
@@ -239,23 +246,23 @@ a：团购点编号;    b：客户电话
 #### 参考答案
 问题1：
 
-A1：患者;A2：快递员;A3：药师
+A1：患者; A2：快递员; A3：药师
 
-U1：确认处方;U2：支付;U3：微信支付;U4：支付宝支付
+U1：确认处方; U2：支付; U3：微信支付; U4：支付宝支付
 
 问题2：
 
-C1：处方;C2：煎制处方;C3：非煎制处方;C4：药品;C5：快递信息
+C1：处方; C2：煎制处方; C3：非煎制处方; C4：药品; C5：快递信息
 
 问题3：
 
 包含(include)∶
 
-include为包含关系，当两个或多个用例中共用一组相同的动作，这时可以将这组相同的动作抽出来作为一个独立的子用例，供多个基用例所共享。因为子用例被抽出，基用例并非一个完整的用例，所以include关系中的基用例必须和子用例一起使用才够完整，子用例也必然被执行。include关系在用例图中使用带箭头的虚线表示(在线上标注<>)，箭头从基用例指向子用例。
+include 为包含关系，当两个或多个用例中共用一组相同的动作，这时可以将这组相同的动作抽出来作为一个独立的子用例，供多个基用例所共享。因为子用例被抽出，基用例并非一个完整的用例，所以 include 关系中的基用例必须和子用例一起使用才够完整，子用例也必然被执行。include 关系在用例图中使用带箭头的虚线表示(在线上标注 `<<include>>`)，箭头从基用例指向子用例。
 
 扩展(extend)∶
 
-extend关系是对基用例的扩展，基用例是一个完整的用例，即使没有子用例的参与，也可以完成一个完整的功能。extend的基用例中将存在一个扩展点，只有当扩展点被激活时，子用例才会被执行。 exte nd关系在用例图中使用带箭头的虚线表示(在线上标注<>)，箭头从子用例指向基用例。
+extend 关系是对基用例的扩展，基用例是一个完整的用例，即使没有子用例的参与，也可以完成一个完整的功能。extend的基用例中将存在一个扩展点，只有当扩展点被激活时，子用例才会被执行。 extend 关系在用例图中使用带箭头的虚线表示(在线上标注 `<<extend>>`)，箭头从子用例指向基用例。
 
 泛化(generalization)∶
 
@@ -381,19 +388,88 @@ print(“V%d- -V%d-
 
 (1) `i<=N`
 
-(2) `j=i+r-1`
+(2) `int j=i+r-1`
 
 (3) `temp<m[i][j]`
 
-(4) `S[i][j]+1,j`
+(4) `s[i][j]+1,j`
 
 问题2：
 
-(5) 经典的分治（divide-and-conquer）策略
+(5) 动态规划
 
 (6) O(n^3)
 
 (7) O(n^2)
+
+#### 基本算法设计策略
+
+- 贪心法
+
+求解问题最优解，将问题分解为若干步，每一步都取当前最优解，即局部最优解。 
+
+例子：N人过桥问题
+
+- 分治法（divide-and-conquer）
+
+求解问题唯一解，将问题分解为小规模的子问题，子问题之间**相互独立**。 
+
+例子：汉诺塔
+
+- 回溯法
+
+求解问题最优解或唯一解。 
+
+就是深度优先搜索，常用递归实现。
+
+约数条件：有不可行解时，判断当前选择是否符合可行解。 
+
+限界条件：在找最优解时，判断当前选择是否符合最优解。 
+
+例子：连通图着色问题。
+
+- 分支限界法
+
+求解问题最优解或唯一解。 
+
+活结点。 
+
+例子：集装箱分配问题
+
+- 随机化算法
+
+*随机化算法分类：*
+
+(1)数值随机算法：用于数值问题的求解，得到近似解。
+
+(2)蒙特卡洛算法：计算数学中的一种计算方法，用于求问题的准确解，得到正确解的概率以节约时间。原理(大数定律)是通过大量随机样本，去了解一个系统，进而得到所要计算的值。
+
+(3)拉斯维加斯算法：与蒙特卡洛算法相似，但是绝不返回错误的解。
+
+(4)舍伍德算法：在确定性算法中加入随机性来降低最坏情况出现的概率。
+
+*随机化算法分类：*
+
+(1)线性同余法 (2)平方取中法 (3)乘同余法 (4)混合同余法
+
+例子：判断n是否为素数。 
+
+相关定理：wilson定理、费马定理、二次探测定理。
+
+- 动态规划
+
+求解最优解。 
+
+同分治法类似，只是动态规划保存了之前求得的所有子问题的解，以避免重复的计算。 
+
+*适用条件：*
+
+(1)最优化原理（最优子结构） (2)无后向性 (3)子问题的重叠性
+
+动态规划的根本目的是：解决冗余，利用空间复杂度减少时间复杂度。
+
+例子：师姐大赛胜率问题
+
 ### 试题五
 (共 15 分)
 
@@ -429,16 +505,88 @@ print(“V%d- -V%d-
 
 ![](images/5-4.png)
 
+**[C++代码]**
+```
+#include <list>
+#include <iostream> // std::cout std::endl
+#include <string>
+using namespace std;
+
+class MenuComponent {//构成层叠菜单的元素
+protected: //Qustion 1
+    string name;
+public:
+    void printMenu() { cout << name << endl; }
+    virtual void addMenuElement(MenuComponent *element) = 0;//Qustion 2
+    virtual void removeMenuElement(MenuComponent *element) = 0;
+    virtual list<MenuComponent *> * getElement() = 0;//Qustion 3
+    string getMenuName() { return name; }
+};
+
+class MenuItem: public MenuComponent {
+public:
+    MenuItem(string name) { this->name = name; }
+    void addMenuElement(MenuComponent *element) { return; }
+    void removeMenuElement(MenuComponent *element) { return; }
+    list<MenuComponent *> * getElement() { return NULL; }
+};
+
+class Menu: public MenuComponent {
+private:
+    //Use of class template 'list' requires template arguments
+    list<MenuComponent *> elementList;//Qustion 4
+public:
+    Menu(string name) { this->name = name; }
+    void addMenuElement(MenuComponent *element) { elementList.push_back(element); }
+    void removeMenuElement(MenuComponent *element) { elementList.remove(element); }
+    list<MenuComponent *> * getElement() { return &elementList; }
+};
+
+// 递归打印Menu
+void printMenus(MenuComponent& ifile) {
+    ifile.printMenu();
+    list<MenuComponent *> *children = ifile.getElement();
+    if (children == NULL) return;
+    if (children->size()==0) return;
+    
+    list<MenuComponent *>::iterator iter;
+    for (iter = children->begin(); iter != children->end(); iter++)
+    {
+        MenuComponent *comp = *iter;
+        printMenus(*comp);
+    }
+}
+
+void printString(string& stringToPrint)
+{
+    cout << stringToPrint << endl;
+}
+
+int main(int argc, const char * argv[]) {
+    MenuComponent *mainMenu = new Menu("Insert");
+    MenuComponent *subMenu = new Menu("Chart");
+    MenuComponent *element = new MenuItem("On This Sheet");
+    mainMenu->addMenuElement(subMenu);//Qustion 5
+    subMenu->addMenuElement(element);
+    printMenus(*mainMenu);
+    cout << endl;
+    return 0;
+}
+```
+
 #### 参考答案
-1：protected
+1：`protected`
 
-2：virtual void addMenuElement(MenuComponent* element)=0;
+2：`virtual void addMenuElement(MenuComponent *element) = 0;`
 
-3：virtual list<MenuComponent *> getElement()=0;
+3：`virtual list<MenuComponent *> * getElement() = 0;`
 
-4：list<MenuComponent *> elementList;
+4：`list<MenuComponent *> elementList;`
 
-5：mainMenu->addMenuElement(subMenu);
+5：`mainMenu->addMenuElement(subMenu);`
+
+#### Code Sample
+[Menu-Component-Composite](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/C++/Menu-Component-Composite)
 
 ### 试题六
 (共 15 分)
@@ -474,16 +622,73 @@ print(“V%d- -V%d-
 ![](images/6-3.jpg)
 
 ![](images/6-4.jpg)
+
+**[Java代码]**
+```
+import java.util.*;
+
+abstract class MenuComponent { // 构成层叠菜单的元素
+    protected String name;      // 菜单项或子菜单名称 // Question_1
+    public void printName() { System.out.println(name); }
+    public abstract boolean addMenuElement(MenuComponent element);// Question_2
+    public abstract boolean removeMenuElement(MenuComponent element);
+    public abstract List<MenuComponent> getElement();// Question_3
+}
+
+class MenuItem extends MenuComponent {
+    public  MenuItem(String name) { this.name = name; }
+    public boolean addMenuElement(MenuComponent element) { return false; }
+    public boolean removeMenuElement(MenuComponent element) { return false; }
+    public List<MenuComponent> getElement() { return null; }
+}
+
+class Menu extends MenuComponent {
+    private List<MenuComponent> elementList;// Question_4
+    public Menu(String name) {
+        this.name = name;
+        this.elementList = new ArrayList<MenuComponent>();
+    }
+    public boolean addMenuElement(MenuComponent element) {
+        return elementList.add(element);
+    }
+    public boolean removeMenuElement(MenuComponent element) {
+        return elementList.remove(element);
+    }
+    public List<MenuComponent> getElement() {
+        return elementList;
+    }
+}
+
+class CompositeTest {
+    public static void main(String[] args) {
+        MenuComponent mainMenu = new Menu("Insert");
+        MenuComponent subMenu = new Menu("Chart");
+        MenuComponent element = new MenuItem("On This Sheet");
+        mainMenu.addMenuElement(subMenu);// Question_5
+        subMenu.addMenuElement(element);
+        printMenus(mainMenu);
+    }
+    private static void printMenus(MenuComponent ifile) {
+        ifile.printName();
+        List<MenuComponent> children = ifile.getElement();
+        if (children == null) return;
+        for (MenuComponent element:children) {
+            printMenus(element);
+        }
+    }
+}
+```
+
 #### 参考答案
-1：protected
+1：`protected`
 
-2：abstract boolean addMenuElement(MenuComponent element);
+2：`abstract boolean addMenuElement(MenuComponent element);`
 
-3：abstract List<MenuComponent> getElement();
+3：`abstract List<MenuComponent> getElement();`
 
-4：Arraylist<MenuComponent> elementList;
+4：`List<MenuComponent> elementList;`
 
-5：mainMenu.addMenuElement(subMenu);
+5：`mainMenu.addMenuElement(subMenu);`
 
 #### Code Sample
-[XXX](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/C/XXX)
+[MenuComponent](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/Java/MenuComponent)
