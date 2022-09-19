@@ -1,7 +1,5 @@
 # 2019上半年软件设计师考试真题-上午卷
 
-<h4><font color=green>【答题/学习模式】将<code>README.md</code>中的<code>display</code>属性全部设置为<code>none/inline</code></font></h4>
-
 ## 索引
 ||||||
 |:|:|:|:|:|
