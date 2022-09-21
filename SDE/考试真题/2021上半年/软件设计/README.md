@@ -73,46 +73,51 @@
 
 根据说明，采用结构化语言对“道闸控制”的加工逻辑进行描述。
 
-#### 参考答案
-问题1：
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+问题1：<br><br>
 
-E1：汽车;
-E2：车主;
-E3：支付系统;
-E4：管理人员;
-E5：道闸控制系统
+E1：汽车;<br>
+E2：车主;<br>
+E3：支付系统;<br>
+E4：管理人员;<br>
+E5：道闸控制系统<br><br>
 
-问题2：
+问题2：<br><br>
 
-D1：停车记录表
-D2：用户或车主账号储存余额表
-D3：车位信息表
+D1：停车记录表<br>
+D2：用户或车主账号储存余额表<br>
+D3：车位信息表<br><br>
 
-问题3：
+问题3：<br><br>
 
-P3到D2：更新余额(若储存余额够本次停车费用，自动扣费并更新余额)
+P3到D2：更新余额(若储存余额够本次停车费用，自动扣费并更新余额)<br>
 
-P5到D3：车位数(修改空余车位数)
+P5到D3：车位数(修改空余车位数)<br>
 
-P1到P5：道闸控制请求(车辆入场信息)
+P1到P5：道闸控制请求(车辆入场信息)<br>
 
-P4到P5：故障排查处理
+P4到P5：故障排查处理<br>
 
-D3到P3：计费规则信息
+D3到P3：计费规则信息<br>
 
-问题4：
+问题4：<br>
+</p>
 
-```
-IF (道闸执行状态正常)
-    IF (车辆入场) THEN
-        将车牌号及其入场时间信息存入停车记录，修改空余车位数
-    ELSEIF (车辆出场) THEN
-        更新停车状态，修改空余车位数
-    ENDIF
-ELSEIF (无法在规定的时间内接收到其返回的执行状态正常放行) THEN
-    系统向管理人员发送异常告警信息
-ENDIF
-```
+<code>IF (道闸执行状态正常)</code>
+<code>    IF (车辆入场) THEN</code>
+<code>        将车牌号及其入场时间信息存入停车记录，修改空余车位数</code>
+<code>    ELSEIF (车辆出场) THEN</code>
+<code>        更新停车状态，修改空余车位数</code>
+<code>    ENDIF</code>
+<code>ELSEIF (无法在规定的时间内接收到其返回的执行状态正常放行) THEN</code>
+<code>    系统向管理人员发送异常告警信息</code>
+<code>ENDIF</code>
+</div>
+
+***
+
 ### 试题二
 (共 15 分)
 
@@ -170,19 +175,21 @@ ENDIF
 【问题3】(5分)
 若社区蔬菜团购网站还兼有代收快递的业务，请增加新的"快递"实体，并给出客户实体和快递实体之间的"收取'联系，对图1进行补充。"快递"关系模式包括快递编号、客户电话和日期。
 
-#### 参考答案
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+问题1：<br>
 
-问题1：
+客户(实体)与订单(联系)连线，订单(联系)与社区团购点(实体)连线;两个连线上的联系为**<br>
 
-客户(实体)与订单(联系)连线，订单(联系)与社区团购点(实体)连线;两个连线上的联系为**
+问题2：<br><br>
 
-问题2：
+a：团购点编号。主键：供应商编号，团购点编号；外键：供应商编号，团购点编号。<br>
 
-a：团购点编号。主键：供应商编号，团购点编号；外键：供应商编号，团购点编号。
+b：客户电话。主键：订单编号；外键：团购点编号，客户电话。<br>
 
-b：客户电话。主键：订单编号；外键：团购点编号，客户电话。
-
-问题3：
+问题3：<br>
+</p>
 
 <center>
     <img style="border-radius: 0.3125em;
@@ -194,6 +201,7 @@ b：客户电话。主键：订单编号；外键：团购点编号，客户电�
     color: #999;
     padding: 2px;">图2-1 实体联系图（补充）</div>
 </center>
+</div>
 
 ### 试题三
 (共 15 分)
@@ -243,30 +251,36 @@ b：客户电话。主键：订单编号；外键：团购点编号，客户电�
 [问题3] (3分)
 
 简要解释用例之间的include、extend 和generalize关系的内涵。
-#### 参考答案
-问题1：
 
-A1：患者; A2：快递员; A3：药师
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+问题1：<br>
 
-U1：确认处方; U2：支付; U3：微信支付; U4：支付宝支付
+A1：患者; A2：快递员; A3：药师<br>
 
-问题2：
+U1：确认处方; U2：支付; U3：微信支付; U4：支付宝支付<br><br>
 
-C1：处方; C2：煎制处方; C3：非煎制处方; C4：药品; C5：快递信息
+问题2：<br>
 
-问题3：
+C1：处方; C2：煎制处方; C3：非煎制处方; C4：药品; C5：快递信息<br><br>
 
-包含(include)∶
+问题3：<br>
 
-include 为包含关系，当两个或多个用例中共用一组相同的动作，这时可以将这组相同的动作抽出来作为一个独立的子用例，供多个基用例所共享。因为子用例被抽出，基用例并非一个完整的用例，所以 include 关系中的基用例必须和子用例一起使用才够完整，子用例也必然被执行。include 关系在用例图中使用带箭头的虚线表示(在线上标注 `<<include>>`)，箭头从基用例指向子用例。
+包含(include)∶<br>
 
-扩展(extend)∶
+include 为包含关系，当两个或多个用例中共用一组相同的动作，这时可以将这组相同的动作抽出来作为一个独立的子用例，供多个基用例所共享。因为子用例被抽出，基用例并非一个完整的用例，所以 include 关系中的基用例必须和子用例一起使用才够完整，子用例也必然被执行。include 关系在用例图中使用带箭头的虚线表示(在线上标注 `<<include>>`)，箭头从基用例指向子用例。<br><br>
 
-extend 关系是对基用例的扩展，基用例是一个完整的用例，即使没有子用例的参与，也可以完成一个完整的功能。extend的基用例中将存在一个扩展点，只有当扩展点被激活时，子用例才会被执行。 extend 关系在用例图中使用带箭头的虚线表示(在线上标注 `<<extend>>`)，箭头从子用例指向基用例。
+扩展(extend)∶<br>
 
-泛化(generalization)∶
+extend 关系是对基用例的扩展，基用例是一个完整的用例，即使没有子用例的参与，也可以完成一个完整的功能。extend的基用例中将存在一个扩展点，只有当扩展点被激活时，子用例才会被执行。 extend 关系在用例图中使用带箭头的虚线表示(在线上标注 `<<extend>>`)，箭头从子用例指向基用例。<br><br>
+
+泛化(generalization)∶<br>
 
 泛化关系是一种继承关系，子用例将继承基用例的所有行为，关系和通信关系，也就是说在任何使用基用例的地方都可以用子用例来代替。泛化关系在用例图中使用空心的箭头表示，箭头方向从子用例指向基用例。
+
+</p>
+</div>
 
 ### 试题四
 (共 15 分)
@@ -383,24 +397,30 @@ print(“V%d- -V%d-
 [问题2] (7分)
 
 根据说明和C代码，该算法采用的设计策略为(5)，算法的时间复杂度为(6)，空间复杂度为(7) (用0表示)。
-#### 参考答案
-问题1：
 
-(1) `i<=N`
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+问题1：<br>
 
-(2) `int j=i+r-1`
+(1) <code>i<=N</code><br>
 
-(3) `temp<m[i][j]`
+(2) <code>int j=i+r-1</code><br>
 
-(4) `s[i][j]+1,j`
+(3) <code>temp<m[i][j]</code><br>
 
-问题2：
+(4) <code>s[i][j]+1,j</code><br><br>
 
-(5) 动态规划
+问题2：<br>
 
-(6) O(n^3)
+(5) 动态规划<br>
 
-(7) O(n^2)
+(6) O(n^3)<br>
+
+(7) O(n^2)<br>
+
+</p>
+</div>
 
 #### 基本算法设计策略
 
@@ -574,16 +594,20 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
-#### 参考答案
-1：`protected`
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+1：<code>protected</code><br>
 
-2：`virtual void addMenuElement(MenuComponent *element) = 0;`
+2：<code>virtual void addMenuElement(MenuComponent *element) = 0;</code><br>
 
-3：`virtual list<MenuComponent *> * getElement() = 0;`
+3：<code>virtual list<MenuComponent *> * getElement() = 0;</code><br>
 
-4：`list<MenuComponent *> elementList;`
+4：<code>list<MenuComponent *> elementList;</code><br>
 
-5：`mainMenu->addMenuElement(subMenu);`
+5：<code>mainMenu->addMenuElement(subMenu);</code><br>
+</p>
+</div>
 
 #### Code Sample
 [Menu-Component-Composite](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/C++/Menu-Component-Composite)
@@ -679,16 +703,20 @@ class CompositeTest {
 }
 ```
 
-#### 参考答案
-1：`protected`
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+1：<code>protected</code>
 
-2：`abstract boolean addMenuElement(MenuComponent element);`
+2：<code>abstract boolean addMenuElement(MenuComponent element);</code>
 
-3：`abstract List<MenuComponent> getElement();`
+3：<code>abstract List<MenuComponent> getElement();</code>
 
-4：`List<MenuComponent> elementList;`
+4：<code>List<MenuComponent> elementList;</code>
 
-5：`mainMenu.addMenuElement(subMenu);`
+5：<code>mainMenu.addMenuElement(subMenu);</code>
+</p>
+</div>
 
 #### Code Sample
 [MenuComponent](https://github.com/MichaelLedger/SDE-Code-Samples/tree/main/Java/MenuComponent)
