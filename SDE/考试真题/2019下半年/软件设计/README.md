@@ -69,80 +69,109 @@
    
    根据说明，采用结构化语言对“P5: 寻找物流商”的加工逻辑进行描述。
 
-#### 参考答案
-【问题1】(3分)
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+【问题1】(3分)<br><br>
 
-E1:帮买顾问
-E2:车辆交易系统
-E3:物流商
+E1:帮买顾问<br>
+E2:车辆交易系统<br>
+E3:物流商<br><br>
 
-【问题2】(5分)
+【问题2】(5分)<br><br>
 
-D1:交易线索信息表
-D2:订单信息表
-D3:路线信息表
-D4:合约信息表
-D5:物流商信息表
+D1:交易线索信息表<br>
+D2:订单信息表<br>
+D3:路线信息表<br>
+D4:合约信息表<br>
+D5:物流商信息表<br><br>
 
-【问题3】(4分)
+【问题3】(4分)<br><br>
+</p>
 
-数据名|起点|终点
-:-:|:-:|:-:
-物流信息|P5/寻找物流商|E2/车辆交易系统
-新订单信息|D2/订单信息表|P5/寻找物流商
-路线信息|D3/路线信息表|P5/寻找物流商
-合约信息|D4/合约信息表|P5/寻找物流商
+<table border="1px solid #ccc">
+<h4>缺失的数据流及其起点和终点</h4>
+<tr>
+<td>数据流名称</td>
+<td>起点</td>
+<td>终点</td>
+</tr>
+<tr>
+<td>物流信息</td>
+<td>P5/寻找物流商</td>
+<td>E2/车辆交易系统</td>
+</tr>
+<tr>
+<td>新订单信息</td>
+<td>D2/订单信息表</td>
+<td>P5/寻找物流商</td>
+</tr>
+<tr>
+<td>路线信息</td>
+<td>D3/路线信息表</td>
+<td>P5/寻找物流商</td>
+</tr>
+<tr>
+<td>合约信息</td>
+<td>D4/合约信息表</td>
+<td>P5/寻找物流商</td>
+</tr>
+</table>
 
+<p>
 【问题4】(3分)
-```
-寻找物流商{
-    WHILE(有新订单)
-    DO{
-        IF 订单.类型 IN('保卖车'，'全国购')
-                    THEN 分配订单到竞拍体系;
-        ELSE IF 订单.路线符合固定路线或包车路线
-                    THEN 自动分配订单给合约物流商;
-        ELSE 分配订单到竞拍体系;
-        ENDIF
-        给承运的物流商发送信息;
-        更新订单的物流信息;
-        给车辆交易系统发送物流信息;
-    }ENDDO
-}
+</p>
 
-竞拍体系{
-    WHILE(收到订单)
-    DO{
-        推送订单信息给有相关路线的物流商;
-        物流商竞拍出价;
-        最优报价物流商中标;
-    }ENDDO
-}
+<code>寻找物流商{</code><br>
+<code>    WHILE(有新订单)</code><br>
+<code>    DO{</code><br>
+<code>        IF 订单.类型 IN('保卖车'，'全国购')</code><br>
+<code>                    THEN 分配订单到竞拍体系;</code><br>
+<code>        ELSE IF 订单.路线符合固定路线或包车路线</code><br>
+<code>                    THEN 自动分配订单给合约物流商;</code><br>
+<code>        ELSE 分配订单到竞拍体系;</code><br>
+<code>        ENDIF</code><br>
+<code>        给承运的物流商发送信息;</code><br>
+<code>        更新订单的物流信息;</code><br>
+<code>        给车辆交易系统发送物流信息;</code><br>
+<code>    }ENDDO</code><br>
+<code>}</code><br><br>
 
-或
+<code>竞拍体系{</code><br>
+<code>    WHILE(收到订单)</code><br>
+<code>    DO{</code><br>
+<code>        推送订单信息给有相关路线的物流商;</code><br>
+<code>        物流商竞拍出价;</code><br>
+<code>        最优报价物流商中标;</code><br>
+<code>    }ENDDO</code><br>
+<code>}</code><br><br>
 
-寻找物流商{
-    WHILE(有新订单)
-    DO{
-        IF 订单.类型==普通二手车'AND 订单.路线符合固定路线或包车路线
-            THEN 自动分配订单给合约物流商;
-        ELSE 分配订单到竞拍体系;
-        ENDIF
-        给承运的物流商发送信息;
-        更新订单的物流信息;
-        给车辆交易系统发送物流信息;
-    }ENDDO
-}
+<p>或</p>
 
-竞拍体系{
-    WHILE(收到订单)
-    DO{
-        推送订单信息给有相关路线的物流商;
-        物流商竞拍出价;
-        最优报价物流商中标;
-    }ENDDO
-}
-```
+<code>寻找物流商{</code><br>
+<code>    WHILE(有新订单)</code><br>
+<code>    DO{</code><br>
+<code>        IF 订单.类型==普通二手车'AND 订单.路线符合固定路线或包车路线</code><br>
+<code>            THEN 自动分配订单给合约物流商;</code><br>
+<code>        ELSE 分配订单到竞拍体系;</code><br>
+<code>        ENDIF</code><br>
+<code>        给承运的物流商发送信息;</code><br>
+<code>        更新订单的物流信息;</code><br>
+<code>        给车辆交易系统发送物流信息;</code><br>
+<code>    }ENDDO</code><br>
+<code>}</code><br><br>
+
+<code>竞拍体系{</code><br>
+<code>    WHILE(收到订单)</code><br>
+<code>    DO{</code><br>
+<code>        推送订单信息给有相关路线的物流商;</code><br>
+<code>        物流商竞拍出价;</code><br>
+<code>        最优报价物流商中标;</code><br>
+<code>    }ENDDO</code><br>
+<code>}</code><br>
+
+</div>
+
 ***
 ### 试题二
 (共 15 分)
@@ -189,36 +218,41 @@ D5:物流商信息表
 
 员工关系是否存在传递依赖?用 100 字以内的文字说明理由
 
-#### 参考答案
-【问题1】(5分)
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+【问题1】(5分)<br>
 
-(1)(a)部门负责人(b)培训师(c)新入职员工
+(1)(a)部门负责人(b)培训师(c)新入职员工<br>
 
-(2)存在缺失联系；部门与员工之间隶属关系，联系类型是1:*。
+(2)存在缺失联系；部门与员工之间隶属关系，联系类型是1:*。<br><br>
 
-【问题2】(3分)
+【问题2】(3分)<br>
 
-(d)岗位，基本工资
+(d)岗位，基本工资<br>
 
-(e)课程号
+(e)课程号<br>
 
-(f)新入职员工/新入职员工工号，课程成绩
+(f)新入职员工/新入职员工工号，课程成绩<br><br>
 
-【问题3】(4分)
+【问题3】(4分)<br>
 
-(g)员工号
+(g)员工号<br>
 
-(h)部门号
+(h)部门号<br>
 
-(i)课程号、培训师、培训地点
+(i)课程号、培训师、培训地点<br>
 
-(j)课程号、培训师
+(j)课程号、培训师<br><br>
 
-【问题4】(3分)
+【问题4】(3分)<br>
 
-存在传递函数依赖；
+存在传递函数依赖；<br>
 
 文中提到不同的岗位有不同的基本工资，基本工资依赖于岗位，岗位依赖于员工号，即存在传递函数依赖：员工号->岗位，岗位->基本工资。
+</p>
+</div>
+
 ***
 ### 试题三
 (共 15 分)
@@ -258,40 +292,46 @@ D5:物流商信息表
 【问题3】 (4分)
 
 根据说明中的描述，给出图3-2中类C4、C5、Patient 和DentalStaff的必要属性。
-#### 参考答案
-【问题1】
 
-A1 Receptionist(接待人员)
-A2: Dentalstaff(医护人员)
-A3 offhcestaff(办公人员)
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+【问题1】<br>
 
-U1: Maintain patient info(记录病人基本信息)
+A1 Receptionist(接待人员)<br>
+A2: Dentalstaff(医护人员)<br>
+A3 offhcestaff(办公人员)<br><br>
 
-U2: Record office visit info(记录就诊信息)
+U1: Maintain patient info(记录病人基本信息)<br>
 
-U3: Print invoices(打印发票)
+U2: Record office visit info(记录就诊信息)<br>
 
-【问题2】
+U3: Print invoices(打印发票)<br><br>
 
-C1: PatientInvoice(病人发票)
+【问题2】<br>
 
-C2 Insurancelnvoice(机构发票)
+C1: PatientInvoice(病人发票)<br>
 
-C3: Invoice(发票)
+C2 Insurancelnvoice(机构发票)<br>
 
-C4: Procedure(治疗信息)
+C3: Invoice(发票)<br>
 
-C5: OfficeVisit(就诊信息)
+C4: Procedure(治疗信息)<br>
 
-【问题3】
+C5: OfficeVisit(就诊信息)<br><br>
 
-C4:治疗项目名称、治疗项目描述、治疗的牙齿和费用、Office Visit、Dental Staff
+【问题3】<br>
 
-C5:就诊信息、就诊时间、就诊费用、支付代码、病人支付费用和医保支付费用、病人patient
+C4:治疗项目名称、治疗项目描述、治疗的牙齿和费用、Office Visit、Dental Staff<br>
 
-Patient:姓名、身份证号、出生日期、性别、首次就诊时间、最后就诊时间等
+C5:就诊信息、就诊时间、就诊费用、支付代码、病人支付费用和医保支付费用、病人patient<br>
+
+Patient:姓名、身份证号、出生日期、性别、首次就诊时间、最后就诊时间等<br>
 
 Dentalstaff:姓名、职位、身份证号、住址、联系电话、职工号。
+</p>
+</div>
+
 ***
 ### 试题四
 (共 15 分)
@@ -334,26 +374,34 @@ c[][]:c[i][j]表示前 i 个物品在背包容量为 j 的情况下最优装包�
 【问题3】 (3分)
 
 若 5 项物品的价值数组和重量数组分别为 v[]= {0,1,6,18,22,28}和 w[]= {0,1,2,5,6,7}背包容量为 T= 11,则获得的最大价值为 (7) 。
-#### 参考答案
-【问题1】
 
-(1) `c[i][j]`
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+【问题1】<br>
 
-(2) `i>0&&j>=w[i]`
+(1) <code>c[i][j]</code><br>
 
-(3) `Calulate_Max_Value(v,w,i-1,j-w[i]) + v [i]`
+(2) <code>i>0&&j>=w[i]</code><br>
 
-(4) `c[i][j]=temp`
+(3) <code>Calulate_Max_Value(v,w,i-1,j-w[i]) + v [i]</code><br>
 
-【问题2】
+(4) <code>c[i][j]=temp</code><br>
 
-(5) 动态规划
+<br>
 
-(6) 自顶向下
+【问题2】<br>
 
-【问题3】
+(5) 动态规划<br>
+
+(6) 自顶向下<br><br>
+
+【问题3】<br>
 
 (7) 40
+</p>
+</div>
+
 ***
 ### 试题五
 (共 15 分)
@@ -383,14 +431,17 @@ c[][]:c[i][j]表示前 i 个物品在背包容量为 j 的情况下最优装包�
 
 ![](images/5-3.png)
 
-#### 参考答案
-(1) `void update();`
+<div style="display: inline;">
+<h4>参考答案</h4>
+<p>
+(1)<code>void update();</code><br>
 
-(2) `Observer`
+(2)<code>Observer</code><br>
 
-(3) `obs.update();`
+(3)<code>obs.update();</code><br>
 
-(4) `Subject`
+(4)<code>Subject</code><br>
 
-(5) `Attach(this);`
-***
+(5)<code>Attach(this);</code>
+</p>
+</div>
