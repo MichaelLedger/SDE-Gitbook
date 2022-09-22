@@ -42,7 +42,7 @@
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/1-1.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>
@@ -52,7 +52,7 @@
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/1-2.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>
@@ -122,7 +122,7 @@ D3 ：校园场所记录表         D4：课表信息记录<br><br>
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/2-1.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>
@@ -161,32 +161,30 @@ D3 ：校园场所记录表         D4：课表信息记录<br><br>
 <div style="display: inline;">
 <h4>参考答案</h4>
 <p>
+【问题 1】<br>
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/2-0-1.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>
 </center>
 
+【问题 2】<br>
 a：所属公司代码   b：投资方编号<br>
 员工-外键：所属公司代码      项目-外键：投资方编号<br>
 项目-主键：（项目编号、投资方编号）组合<br><br>
 
+【问题 3】<br>
 不需要<br>
 项目增加投资额、投资时间，如下图：<br>
 <center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="images/2-0-2.png">
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="images/2-0-2.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;"></div>
+    <div style="color:orange;  display: inline-block; color: #999; padding: 2px;"></div>
 </center>
 </p>
 </div>
@@ -222,7 +220,7 @@ a：所属公司代码   b：投资方编号<br>
      box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
      src="images/3.png">
      <br>
-     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+     <div style="color:orange; 
      display: inline-block;
      color: #999;
      padding: 2px;"></div>
@@ -292,7 +290,7 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
      box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
      src="images/4-1.png">
      <br>
-     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+     <div style="color:orange; 
      display: inline-block;
      color: #999;
      padding: 2px;"></div>
@@ -302,7 +300,7 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
      box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
      src="images/4-2.png">
      <br>
-     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+     <div style="color:orange; 
      display: inline-block;
      color: #999;
      padding: 2px;"></div>
@@ -323,6 +321,7 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
 <div style="display: inline;">
 <h4>参考答案</h4>
 <p>
+【问题 1】<br>
 (1) queen[i]==queen[j] 或其等价形式<br>
 
 (2)1<br>
@@ -331,8 +330,10 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
 
 (4) Nqueen(j+1)<br><br>
 
+【问题 2】<br>
 回溯法<br><br>
 
+【问题 3】<br>
 2<br>
 
 分别为：2413   3142
@@ -355,7 +356,7 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/5-1.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>
@@ -365,7 +366,7 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/5-2.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>
@@ -375,7 +376,7 @@ n 皇后问题描述为:在一个 nXn 的棋盘上摆放 n 个皇后，要求任
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="images/5-3.png">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    <div style="color:orange; 
     display: inline-block;
     color: #999;
     padding: 2px;"></div>

@@ -172,14 +172,9 @@ D1：用户/商户信息表    D2：订单信息表   D3：餐品信息表  D4�
 根据概念模型设计阶段完成的实体联系图，得出如下关系模式（不完整）：
 
 <center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="images/2-1.jpeg">
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="images/2-1.jpeg">
     <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;"></div>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999; padding: 2px;"></div>
 </center>
 
 逻辑结构设计

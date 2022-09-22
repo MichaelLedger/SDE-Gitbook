@@ -12,6 +12,9 @@ Software design engineer examination book published with Gitbook.
 #### Global install gitbook
 `$ sudo npm install gitbook-cli -g`
 
+#### Install plugins
+`$ cd SDE && gitbook install`
+
 ***
 Preview locally in Safari with command:
 ```
