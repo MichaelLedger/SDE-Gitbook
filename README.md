@@ -1,4 +1,7 @@
 # SDE-Gitbook
+
+[Setup and Installation of GitBook](https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md)
+
 Software design engineer examination book published with Gitbook.
 
 #### Install Homebrew
@@ -8,6 +11,19 @@ Software design engineer examination book published with Gitbook.
 #### Lookup version
 `node -v`
 `npm -v`
+
+#### upgrade node to stable version
+```
+% sudo n stable
+Password:
+  installing : node-v16.17.1
+       mkdir : /usr/local/n/versions/node/16.17.1
+       fetch : https://nodejs.org/dist/v16.17.1/node-v16.17.1-darwin-x64.tar.xz
+     copying : node/16.17.1
+   installed : v16.17.1 (with npm 8.15.0)
+```
+
+#### upgarde npm install -g npm
 
 #### Global install gitbook
 `$ sudo npm install gitbook-cli -g`
@@ -105,7 +121,11 @@ Personal Resolution:
 % npm install graceful-fs@latest --save
 ```
 After installed graceful-fs@latest (graceful-fs@4.2.6), start install gitbook.
+
 ```
+% npm uninstall gitbook-cli -g
+% npm install gitbook-cli -g
+
 % gitbook --version
 CLI version: 2.3.2
 GitBook version: 3.2.3

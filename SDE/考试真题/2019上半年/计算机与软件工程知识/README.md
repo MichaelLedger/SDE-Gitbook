@@ -516,13 +516,13 @@ CPU大多是64位的，但大多都以32位字长运行，都没能展示它的�
 
 ![](images/26.png)
 
-A.MyDrivers\user2\和\user2\
+A.MyDrivers\user2\ 和 \user2\
 
-B.\MyDrivers\user2\和\user2\
+B.\MyDrivers\user2\ 和 \user2\
 
-C.\MyDrivers\user20 和 user2\ 
+C.\MyDrivers\user2\ 和 user2\ 
 
-D.MyDrivers\user2\和 user2\
+D.MyDrivers\user2\ 和 user2\
 
 <div style="display: inline;">
 <h4>答案</h4>
