@@ -680,5 +680,7 @@ A.SMTP    B.POP3    C.IMAP     D.FTP
 <p>D</p>
 <h4>解析</h4>
 <p>
+<a href="../../../知识点/电子邮件收发协议/README.md">电子邮件收发协议</a><br>
+<a href="../../../知识点/文件传输协议FTP/README.md">文件传输协议FTP</a>
 </p>
 </div>

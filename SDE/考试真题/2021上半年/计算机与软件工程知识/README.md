@@ -1886,7 +1886,7 @@ C.TCP
 D.FTP 
 <div style="display: inline;">
 <h4>答案</h4>
-D
+A
 <h4>解析</h4>
 本题考查URL基本知识。<br>
 
@@ -1913,6 +1913,8 @@ D.MIME
 <h4>答案</h4>
 A
 <h4>解析</h4>
+<a href="../../../知识点/电子邮件收发协议/README.md">电子邮件收发协议</a><br>
+
 A选项SMTP邮件传输协议。本题选择A选项。<br>
 
 B选项POP3邮件收取协议。<br>

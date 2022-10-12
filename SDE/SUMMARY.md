@@ -34,4 +34,6 @@
         * [已知逻辑地址求物理地址](知识点/已知逻辑地址求物理地址/README.md)
         * [MTTF/MTBF/MTRF的概念](知识点/MTTF:MTBF:MTRF的概念/README.md)
         * [黑盒测试](知识点/黑盒测试/README.md)
+        * [电子邮件收发协议](知识点/电子邮件收发协议/README.md)
+        * [文件传输协议FTP](知识点/文件传输协议FTP/README.md)
         
