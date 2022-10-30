@@ -1,46 +1,7 @@
-## 加密算法&常见计算机网络知识
+## 计算机网络
 
-#### 加密算法
-
-1、常见的加密算法
-
-常见对称密钥加密算法（共享密钥加密技术）：
-
-DES（Data Encryption Standard，数据加密标准）、3DES（ Triple DES，三重数据加密算法 ）、RC5（分组密码算法）、IDEA（International Data Encryption Algorithm，国际数据加密算法）、AES（Advanced Encryption Standard，高级加密标准，分组加密算法）算法。 
-
-常见非对称密钥加密算法（公开密钥加密技术）：
-
-RSA（公开密钥密码体制）、ECC（Elliptic Curves Cryptography，椭圆曲线加密算法）
-
-常见的摘要算法：
-
-MD5(128位)（Message-Digest Algorithm 5，信息-摘要算法5），SHA(160位)（Secure Hash Algorithm，安全散列算法）。
-
-2、加密技术的应用
-
-数字信封：用接收方公钥加密使用的对称密钥。
-
-数字签名：用发送方私钥签名，保证发送方身份真实性，发送者不可抵赖，与信息摘要结合，可防篡改。对用户的身份进行认证。
-
-信息摘要：单向散列值函数，防篡改，保证消息完整性。
-
-数字证书（确保消息不可否认）
-
-数字证书的内容包括：CA签名、用户信息（用户名称）、用户公钥等。
-
-证书中的CA签名验证数字证书的可靠性、验证网站真伪。
-
-用户公钥：客户端利用证书中的公钥加密，服务器利用自己的私钥解密。
-
-3、网络安全协议分层
-
-HTTPS 协议是P协议与SSL协议的结合，默认端口号443。
-
-PGP协议是邮件安全协议。
-
-SET协议是电子商务安全协议，涉及电子交易安全。
-
-SSH：为建立在应用层基础上的安全协议。SSH是较可靠，专为远程登录会话和其他网络服务提供安全性的协议。
+### 试题放置
+题目编号大致为：66-70
 
 #### 常见计算机网络知识
 
@@ -62,7 +23,11 @@ OSPF（Open Shortest Path First开发式最短路径优先），用于在单一�
 
 BGP：边界网关协议，是运行于TCP上的一种自治系统的路由协议。是唯一一个用来处理像因特网大小的网络的协议，也是唯一能够妥善处理好不相关路由域间的多路连接的协议。
 
-25端口为SMTP（Simple Mail Transfer Protocol，简单邮件传输协议）服务器所开放，主要用于发送邮件。110端口为POP3（Post Office Protocol - Version 3，邮件协议版本3）负责邮件收取。
+25端口为SMTP（Simple Mail Transfer Protocol，简单邮件传输协议）服务器所开放，主要用于发送邮件。
+
+110端口为POP3（Post Office Protocol - Version 3，邮件协议版本3）负责邮件收取。
+
+IMAP（Internet Message Access Protocol）以前称作交互邮件访问协议（Interactive Mail Access Protocol），是一个应用层协议。IMAP协议运行在TCP/IP协议之上，使用的端口是143。它与POP3协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。
 
 WEB服务主要是HTTP协议，端口为80。
 

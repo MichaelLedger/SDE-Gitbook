@@ -487,7 +487,7 @@ D
     color: #999;
     padding: 2px;"></div>
 </center>
-其后续遍历即其后缀表达式（逆波兰式）为 <code>ab-cd+*</code>，选择D选项。
+其后序遍历即其后缀表达式（逆波兰式）为 <code>ab-cd+*</code>，选择D选项。
 </div>
 
 ####19、
